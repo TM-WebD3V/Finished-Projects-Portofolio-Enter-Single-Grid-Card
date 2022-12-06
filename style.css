@@ -84,79 +84,100 @@ select {
   --karla-400: 400;
   --karla-700: 700;
 }
+/* Helper */
+
+.padding-card {
+  padding: 0.8rem 1rem 1rem 1rem;
+}
+
+.line-height {
+  line-height: 1.1;
+}
+
+/* actual code! */
+.links {
+  text-decoration: none;
+}
+
+.links:visited {
+  color: hsl(204 43% 20%);
+}
+
+.links:link {
+  color: hsl(204 43% 93% / 0.7);
+}
 * {
   font-family: var(--ff-karla);
 }
 
 body {
   background-color: var(--Light-Gray);
-  padding: min(10vw, 5rem) min(25vw, 8rem);
 }
 .main-card-component {
-  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  padding: 2.5rem 5.5rem;
 }
 .white-bg-component {
   background-color: white;
-  padding: 0.8em 1em;
+
   border-radius: 0.2em 0.2em 0 0;
 }
 
 .join {
   color: var(--Cyan);
-  font-size: min(3.5vw, 5rem);
-  margin-block-end: 0.2em;
+  font-size: 1rem;
 }
 
 .money-back {
   color: var(--Bright-Yellow);
-  font-size: min(2.5vw, 3rem);
-  margin-block-end: 0.5em;
+  font-size: 0.6em;
+  margin-block-end: 0.6em;
 }
 
 .first-info {
+  --Grayish-blue: hsl(217, 22%, 85%);
   color: var(--Grayish-Blue);
-  font-size: min(2vw, 2.3rem);
+  font-size: 0.6rem;
 }
 
 .green-clr-component {
   background-color: var(--Cyan);
-  padding: 0.8em 1em;
 }
 
 .subscription {
   color: var(--Light-Gray);
-  font-size: min(3.5vw, 5rem);
+  font-size: 0.925rem;
 }
 
 .flex-price {
   display: flex;
   align-items: center;
-  justify-content: baseline;
   flex-direction: row;
   gap: 0.5em;
 }
 
 .dollar {
   color: var(--Light-Gray);
-  font-size: min(3vw, 4rem);
+  font-size: 1rem;
   font-weight: var(--karla-700);
 }
 
 .per-month {
   color: hsl(204 43% 93% / 0.7);
-  font-size: min(2.3vw, 2.5rem);
+  font-size: 0.5rem;
 }
 
 .second-info {
   color: var(--Light-Gray);
-  font-size: min(2.1vw, 3rem);
+  font-size: 0.6rem;
 }
 
 .sign-up-btn {
   background-color: var(--Bright-Yellow);
   text-align: center;
   color: white;
-  font-size: min(2.3vw, 3rem);
+  font-size: 0.6rem;
   border-radius: 0.2rem;
   border: none;
   box-shadow: 0 1px 4px grey;
@@ -165,17 +186,24 @@ body {
   margin-block-start: 1em;
   width: 100%;
   padding: 0.7em 1.5em;
+  cursor: pointer;
+}
+
+.sign-up-btn:hover {
+  box-shadow: 0 0 1px black;
+  transition: 5ms ease-in-out;
 }
 
 .light-green-clr-component {
   --Cyan: hsl(179 62% 43% / 0.8);
   padding: 0.8em 1em;
   background-color: var(--Cyan);
+  border-radius: 0 0 0.2em 0.2em;
 }
 
 .why {
   color: white;
-  font-size: min(3vw, 4rem);
+  font-size: 1rem;
   margin-block-end: 0.5em;
 }
 
@@ -186,5 +214,90 @@ body {
 
 .reasons {
   color: hsl(204 43% 93% / 0.7);
-  font-size: min(1.5vw, 3rem);
+  font-size: 0.6rem;
+}
+
+@media (min-width: 700px) {
+  .main-card-component {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+
+  .join {
+    font-size: 1.6rem;
+    margin-bottom: 0.8em;
+  }
+
+  .money-back {
+    font-size: 1rem;
+  }
+
+  .first-info {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .subscription {
+    font-size: 1.6rem;
+    font-weight: var(--karla-400);
+    margin-bottom: 0.2em;
+  }
+
+  .second-info {
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+  }
+
+  .sign-up-btn {
+    padding: 0.725rem 1.6rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+  }
+  .dollar {
+    font-size: 1.8rem;
+  }
+
+  .per-month {
+    font-size: 0.8rem;
+  }
+
+  .why {
+    font-size: 1.6rem;
+    margin-bottom: 0.4em;
+    font-weight: var(--karla-400);
+  }
+
+  .reasons {
+    font-size: 0.8rem;
+  }
+  .main-card-component > * {
+    padding: 1rem 1.5rem;
+  }
+  .white-bg-component {
+    grid-column: span 2;
+    border-radius: 0.5em 0.5em 0 0;
+  }
+
+  .green-clr-component {
+    border-radius: 0em 0em 0em 0.5em;
+  }
+
+  .light-green-clr-component {
+    border-radius: 0 0 0.5em 0;
+  }
+  .padding-card {
+    padding: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .main-card-component {
+    padding: 5rem 30rem;
+  }
+  .sign-up-btn {
+    max-width: 85%;
+  }
+  .padding-card {
+    padding: 2.5rem;
+  }
 }
